@@ -13,6 +13,8 @@ public class SalesPojo {
 	    private int quantity;
 	    private double totalAmount;
 	    private String paymentMethod;
+	    private String productName;
+	    private String productCategory;
 
 	    // Getters and Setters
 	    public int getSaleId() {
@@ -69,6 +71,22 @@ public class SalesPojo {
 
 	    public void setPaymentMethod(String paymentMethod) {
 	        this.paymentMethod = paymentMethod;
+	    }
+	    
+	    public String getProductName() {
+	        return productName;
+	    }
+
+	    public void setProductName(String productName) {
+	        this.productName = productName;
+	    }
+
+	    public String getProductCategory() {
+	        return productCategory;
+	    }
+
+	    public void setProductCategory(String productCategory) {
+	        this.productCategory = productCategory;
 	    }
 	
 

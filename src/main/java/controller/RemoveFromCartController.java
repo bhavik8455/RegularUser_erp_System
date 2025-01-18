@@ -1,4 +1,3 @@
-// RemoveFromCartController.java in controller package
 package controller;
 
 import java.io.IOException;

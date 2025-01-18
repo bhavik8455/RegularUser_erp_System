@@ -1,14 +1,13 @@
 package model;
 
-import java.security.Timestamp;
-
 public class FeedbackPojo {
 	 private int feedbackId;
 	    private int productId;
 	    private int customerId;
 	    private String comments;
 	    private int ratings;
-	    private Timestamp timestamp;
+	    private java.sql.Timestamp timestamp;
+	    private ProductPojo product;
 
 	    // Getters and Setters
 	    public int getFeedbackId() {
@@ -53,12 +52,19 @@ public class FeedbackPojo {
 	        this.ratings = ratings;
 	    }
 
-	    public Timestamp getTimestamp() {
+	    public java.sql.Timestamp getTimestamp() {
 	        return timestamp;
 	    }
 
-	    public void setTimestamp(Timestamp timestamp) {
-	        this.timestamp = timestamp;
+	    public void setTimestamp(java.sql.Timestamp timestamp2) {
+	        this.timestamp = timestamp2;
+	    }
+	    public ProductPojo getProduct() {
+	        return product;
+	    }
+
+	    public void setProduct(ProductPojo product) {
+	        this.product = product;
 	    }
 	
 
