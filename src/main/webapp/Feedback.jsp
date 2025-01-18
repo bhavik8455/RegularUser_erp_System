@@ -10,44 +10,74 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
         body {
-            background: #321525;
+            background: linear-gradient(135deg, #2a0845, #6441a5);
             color: #e6d7e0;
-            font-family: Poppins;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
         }
         .card {
             background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .card-title {
+            color: #ffd700;
+            font-weight: bold;
+        }
+        .table {
+            color: #e6d7e0;
+        }
+        .table thead th {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .table tbody tr:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary {
+            background: #6441a5;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .btn-primary:hover {
+            background: #503084;
         }
         .modal-content {
-            background-color: #321525;
+            background-color: #2a0845;
             color: #e6d7e0;
+            border-radius: 15px;
         }
         .form-control, .form-select {
             background-color: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             color: #e6d7e0;
+            border-radius: 10px;
         }
         .form-control:focus, .form-select:focus {
             background-color: rgba(255, 255, 255, 0.15);
-            border-color: #4a2038;
-            color: #e6d7e0;
+            border-color: #ffd700;
+            box-shadow: 0 0 5px #ffd700;
         }
-        .star-rating {
+        .star-rating i {
             color: #ffd700;
-            font-size: 24px;
+            font-size: 28px;
             cursor: pointer;
+        }
+        .star-rating i:hover {
+            transform: scale(1.2);
+            transition: transform 0.2s ease;
+        }
+        .alert {
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 <body>
-<div class="card-body">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="card-title mb-0">Product Feedback</h2>
-        
-    </div>
-    
-    <div class="container py-4">
+<div class="container py-5">
     <div class="card">
         <div class="card-body">
             <!-- Flex container for the heading and button -->
