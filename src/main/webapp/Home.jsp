@@ -166,8 +166,9 @@
     </span>
 </button>
 
-<button type="button" class="btn ms-1" onclick="window.location.href='login.html';">
-    <img class="rounded-circle" src="https://cdn-icons-png.flaticon.com/512/10813/10813372.png" alt="Button Image" height="40" width="40" />
+<button type="button" class="btn ms-1">
+    <img class="rounded-circle" src="https://cdn-icons-png.flaticon.com/512/10813/10813372.png" 
+         alt="Button Image" height="40" width="40" />
 </button>
 
                 </div>
@@ -355,6 +356,14 @@
         },
         "retina_detect": true
     });
+    
+
+    // User profile button click handler
+    document.querySelector('.btn.ms-1 img[alt="Button Image"]').parentElement.onclick = function(e) {
+        e.preventDefault();
+        window.location.href = 'userProfile.jsp';
+    };
+
     </script>
 </body>
 </html>
