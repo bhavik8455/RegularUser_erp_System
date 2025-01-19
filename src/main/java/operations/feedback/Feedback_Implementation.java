@@ -15,10 +15,7 @@ public class Feedback_Implementation implements Feedback_Interface {
 	 @Override
 	    public List<SalesPojo> getPurchasedProducts(int customerId) {
 	        List<SalesPojo> purchases = new ArrayList<>();
-	        String query = "SELECT s.*, p.Name, p.Category FROM Sales s " +
-	                      "JOIN Products p ON s.ProductID = p.ProductID " +
-	                      "WHERE s.CustomerID = ? AND NOT EXISTS " +
-	                      "(SELECT 1 FROM Feedback f WHERE f.ProductID = s.ProductID AND f.CustomerID = s.CustomerID)";
+	        String query = "SELECT * from feedback where CustomerID = ?";
 	                      
 	        try (PreparedStatement stmt = GetConnection.getConnection().prepareStatement(query)) {
 	            stmt.setInt(1, customerId);

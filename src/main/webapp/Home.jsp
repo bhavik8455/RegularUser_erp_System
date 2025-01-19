@@ -157,7 +157,7 @@
                             <a class="nav-link active" href="Home.jsp" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
                         </li>
                     </ul>
-                   <button class="btn btn-outline-light my-2 my-sm-0 ms-1 view-feedbacks-button" type="button">View My Feedbacks</button>
+                  <button class="btn btn-outline-light my-2 my-sm-0 ms-1 view-feedbacks-button" type="button" onclick="window.location.href='ViewFeedbacks'">View My Feedbacks</button>
 
 <button type="button" class="btn ms-1 cart-button" onclick="window.location.href='ViewCart'">
     <i class="bi bi-cart3"></i> Cart
