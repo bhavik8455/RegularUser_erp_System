@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="model.UserPojo" %>
+<%@ page import="model.CustomerPojo" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+    <title>Customer Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -29,6 +29,9 @@
             border-radius: 60px;
             margin-bottom: 20px;
         }
+        .readonly-field {
+            background-color: #e9ecef;
+        }
     </style>
 </head>
 <body>
@@ -38,7 +41,7 @@
                 <img src="https://cdn-icons-png.flaticon.com/512/10813/10813372.png" 
                      alt="Profile Avatar" 
                      class="profile-avatar">
-                <h2>User Profile</h2>
+                <h2>Customer Profile</h2>
             </div>
 
             <% if(request.getAttribute("message") != null) { %>
@@ -55,7 +58,7 @@
                 </div>
             <% } %>
 
-            <% UserPojo user = (UserPojo) request.getAttribute("user"); %>
+            <% CustomerPojo customer = (CustomerPojo) request.getAttribute("customer"); %>
             <form action="UserProfile" method="POST">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
@@ -63,7 +66,7 @@
                            class="form-control" 
                            id="name" 
                            name="name" 
-                           value="<%= user != null ? user.getName() : "" %>" 
+                           value="<%= customer != null ? customer.getName() : "" %>" 
                            required>
                 </div>
                 <div class="mb-3">
@@ -72,15 +75,30 @@
                            class="form-control" 
                            id="email" 
                            name="email" 
-                           value="<%= user != null ? user.getMailId() : "" %>" 
+                           value="<%= customer != null ? customer.getEmail() : "" %>" 
                            required>
                 </div>
                 <div class="mb-3">
-                    <label for="role" class="form-label">Role</label>
-                    <input type="text" 
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="tel" 
                            class="form-control" 
-                           id="role" 
-                           value="<%= user != null ? user.getRole() : "" %>" 
+                           id="phone" 
+                           name="phone" 
+                           value="<%= customer != null ? customer.getPhone() : "" %>">
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea class="form-control" 
+                              id="address" 
+                              name="address" 
+                              rows="3"><%= customer != null ? customer.getAddress() : "" %></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="loyaltyPoints" class="form-label">Loyalty Points</label>
+                    <input type="text" 
+                           class="form-control readonly-field" 
+                           id="loyaltyPoints" 
+                           value="<%= customer != null ? customer.getLoyaltyPoints() : "0" %>" 
                            readonly>
                 </div>
                 <div class="d-grid gap-2">

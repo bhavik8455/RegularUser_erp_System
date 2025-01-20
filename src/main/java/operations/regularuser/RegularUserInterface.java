@@ -1,8 +1,8 @@
 package operations.regularuser;
 
-import model.UserPojo;
+import model.CustomerPojo;
 
 public interface RegularUserInterface {
-    UserPojo getUserById(int userId);
-    boolean updateUserDetails(int userId, String name, String email);
+    CustomerPojo getCustomerById(int customerId);
+    boolean updateCustomerDetails(int customerId, String name, String email, String phone, String address);
 }

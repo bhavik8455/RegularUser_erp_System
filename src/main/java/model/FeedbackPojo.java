@@ -1,71 +1,88 @@
 package model;
 
+import java.sql.Timestamp;
+
 public class FeedbackPojo {
-	 private int feedbackId;
-	    private int productId;
-	    private int customerId;
-	    private String comments;
-	    private int ratings;
-	    private java.sql.Timestamp timestamp;
-	    private ProductPojo product;
+    private int feedbackId;
+    private int productId;
+    private int customerId;
+    private String customerName;
+    private String customerEmail;
+    private String comments;
+    private int ratings;
+    private Timestamp timestamp;
+    private ProductPojo product;
 
-	    // Getters and Setters
-	    public int getFeedbackId() {
-	        return feedbackId;
-	    }
+    // Getters and Setters
+    public int getFeedbackId() {
+        return feedbackId;
+    }
 
-	    public void setFeedbackId(int feedbackId) {
-	        this.feedbackId = feedbackId;
-	    }
+    public void setFeedbackId(int feedbackId) {
+        this.feedbackId = feedbackId;
+    }
 
-	    public int getProductId() {
-	        return productId;
-	    }
+    public int getProductId() {
+        return productId;
+    }
 
-	    public void setProductId(int productId) {
-	        this.productId = productId;
-	    }
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
 
-	    public int getCustomerId() {
-	        return customerId;
-	    }
+    public int getCustomerId() {
+        return customerId;
+    }
 
-	    public void setCustomerId(int customerId) {
-	        this.customerId = customerId;
-	    }
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
 
-	    
+    public String getCustomerName() {
+        return customerName;
+    }
 
-	    public String getComments() {
-	        return comments;
-	    }
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
 
-	    public void setComments(String comments) {
-	        this.comments = comments;
-	    }
+    public String getCustomerEmail() {
+        return customerEmail;
+    }
 
-	    public int getRatings() {
-	        return ratings;
-	    }
+    public void setCustomerEmail(String customerEmail) {
+        this.customerEmail = customerEmail;
+    }
 
-	    public void setRatings(int ratings) {
-	        this.ratings = ratings;
-	    }
+    public String getComments() {
+        return comments;
+    }
 
-	    public java.sql.Timestamp getTimestamp() {
-	        return timestamp;
-	    }
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
 
-	    public void setTimestamp(java.sql.Timestamp timestamp2) {
-	        this.timestamp = timestamp2;
-	    }
-	    public ProductPojo getProduct() {
-	        return product;
-	    }
+    public int getRatings() {
+        return ratings;
+    }
 
-	    public void setProduct(ProductPojo product) {
-	        this.product = product;
-	    }
-	
+    public void setRatings(int ratings) {
+        this.ratings = ratings;
+    }
 
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public ProductPojo getProduct() {
+        return product;
+    }
+
+    public void setProduct(ProductPojo product) {
+        this.product = product;
+    }
 }

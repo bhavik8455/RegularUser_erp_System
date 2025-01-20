@@ -18,11 +18,14 @@ public class ViewFeedbackServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
-        // For demo purposes, using customerId = 1
-        int customerId = 1;
-        
-        List<FeedbackPojo> feedbacks = feedbackService.getFeedbacksByCustomerId(customerId);
-        request.setAttribute("feedbacks", feedbacks);
-        request.getRequestDispatcher("viewFeedback.jsp").forward(request, response);
+        try {
+            List<FeedbackPojo> feedbacks = feedbackService.getFeedbacksByCustomerId(1);
+            request.setAttribute("feedbacks", feedbacks);
+            request.getRequestDispatcher("viewFeedback.jsp").forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("error", "Error retrieving feedbacks");
+            request.getRequestDispatcher("viewFeedback.jsp").forward(request, response);
+        }
     }
 }

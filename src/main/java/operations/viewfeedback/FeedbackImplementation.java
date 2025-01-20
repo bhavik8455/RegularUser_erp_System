@@ -10,45 +10,51 @@ import model.FeedbackPojo;
 import model.ProductPojo;
 
 public class FeedbackImplementation implements FeedbackInterface {
-    
-    @Override
-    public List<FeedbackPojo> getFeedbacksByCustomerId(int customerId) {
-        List<FeedbackPojo> feedbacks = new ArrayList<>();
-        String query = "SELECT f.*, p.P_Name, p.P_Category, p.P_SellingPrice " +
-                      "FROM Feedback f " +
-                      "JOIN Products p ON f.ProductID = p.id " +
-                      "WHERE f.CustomerID = ? " +
-                      "ORDER BY f.Timestamp DESC";
-        
-        try (Connection conn = db.GetConnection.getConnection();
-             PreparedStatement pst = conn.prepareStatement(query)) {
-            
-            pst.setInt(1, customerId);
-            
-            try (ResultSet rs = pst.executeQuery()) {
-                while (rs.next()) {
-                    FeedbackPojo feedback = new FeedbackPojo();
-                    feedback.setFeedbackId(rs.getInt("FeedbackID"));
-                    feedback.setProductId(rs.getInt("ProductID"));
-                    feedback.setCustomerId(rs.getInt("CustomerID"));
-                    feedback.setComments(rs.getString("Comments"));
-                    feedback.setRatings(rs.getInt("Ratings"));
-                    feedback.setTimestamp(rs.getTimestamp("Timestamp"));
-                    
-                    // Set product details
-                    ProductPojo product = new ProductPojo();
-                    product.setId(rs.getInt("ProductID"));
-                    product.setP_Name(rs.getString("P_Name"));
-                    product.setP_Category(rs.getString("P_Category"));
-                    product.setP_SellingPrice(rs.getDouble("P_SellingPrice"));
-                    feedback.setProduct(product);
-                    
-                    feedbacks.add(feedback);
-                }
+
+@Override
+public List<FeedbackPojo> getFeedbacksByCustomerId(int customerId) {
+    List<FeedbackPojo> feedbacks = new ArrayList<>();
+
+    String query = "SELECT f.*, p.Name AS ProductName, p.Category AS ProductCategory, p.SellingPrice AS ProductSellingPrice " +
+                   "FROM Feedback f " +
+                   "JOIN Products p ON f.ProductID = p.ProductID " +
+                   "WHERE f.CustomerID = ? " +
+                   "ORDER BY f.Timestamp DESC";
+
+    try (Connection conn = db.GetConnection.getConnection();
+         PreparedStatement pst = conn.prepareStatement(query)) {
+
+        pst.setInt(1, customerId);
+
+        try (ResultSet rs = pst.executeQuery()) {
+            while (rs.next()) {
+                // Create and populate feedback object
+                FeedbackPojo feedback = new FeedbackPojo();
+                feedback.setFeedbackId(rs.getInt("FeedbackID"));
+                feedback.setProductId(rs.getInt("ProductID"));
+                feedback.setCustomerId(rs.getInt("CustomerID"));
+                feedback.setComments(rs.getString("Comments"));
+                feedback.setRatings(rs.getInt("Ratings"));
+                feedback.setTimestamp(rs.getTimestamp("Timestamp"));
+
+                // Create and populate product object
+                ProductPojo product = new ProductPojo();
+                product.setId(rs.getInt("ProductID"));
+                product.setP_Name(rs.getString("ProductName"));
+                product.setP_Category(rs.getString("ProductCategory"));
+                product.setP_SellingPrice(rs.getDouble("ProductSellingPrice"));
+
+                // Set product in feedback
+                feedback.setProduct(product);
+
+                feedbacks.add(feedback);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
-        return feedbacks;
+    } catch (SQLException e) {
+        System.out.println("Error fetching feedbacks: " + e.getMessage());
+        e.printStackTrace();
     }
+    return feedbacks;
+}
+
 }
