@@ -76,7 +76,6 @@ div.container {
 					<select class="form-select" id="userRole" name="role"
 						aria-label="Select user role">
 						<option selected disabled>Select Role</option>
-						<option>Admin</option>
 						<option>Regular</option>
 					</select> <label for="userRole">User Role</label>
 				</div>
