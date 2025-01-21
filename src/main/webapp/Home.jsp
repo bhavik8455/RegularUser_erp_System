@@ -170,6 +170,10 @@
     <img class="rounded-circle" src="https://cdn-icons-png.flaticon.com/512/10813/10813372.png" 
          alt="Button Image" height="40" width="40" />
 </button>
+<button type="button" class="btn ms-1 btn btn-outline-danger" onclick="window.location.href='login.jsp'">
+    <i class="bi bi-box-arrow-right"></i> Logout
+</button>
+
 
                 </div>
             </div>

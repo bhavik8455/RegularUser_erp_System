@@ -47,4 +47,7 @@ public class UserPojo {
     public void setRole(String role) {
         this.role = role;
     }
-}
+    
+
+		
+	}

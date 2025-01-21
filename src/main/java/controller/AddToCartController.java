@@ -24,7 +24,7 @@ public class AddToCartController extends HttpServlet {
         HttpSession session = request.getSession();
         
         int productId = Integer.parseInt(request.getParameter("productId"));
-        int quantity = 1; // Default quantity
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
         
         // Get current cart or create new one
         List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
